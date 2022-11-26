@@ -43,6 +43,8 @@
     "jest-environment-jsdom": "^29.1.2",
     "msw": "^0.47.4",
     "nodemon": "^2.0.7",
+    "pg": "^8.8.0",
+    "pg-promise": "^10.15.0",
     "save": "^2.9.0"
   },
   "devDependencies": {

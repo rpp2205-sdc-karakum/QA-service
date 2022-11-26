@@ -1,7 +1,7 @@
 CREATE TABLE questions (
   question_id INT,
   product_id INT,
-  question_body TEXT,
+  body TEXT,
   question_date VARCHAR(100),
   asker_name VARCHAR(50),
   asker_email VARCHAR(100),
