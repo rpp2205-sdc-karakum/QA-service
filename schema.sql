@@ -1,4 +1,4 @@
-CREATE TABLE questions (
+CREATE TABLE IF NOT EXISTS questions (
   question_id INT,
   product_id INT,
   body TEXT,
@@ -10,7 +10,7 @@ CREATE TABLE questions (
   PRIMARY KEY (question_id)
 );
 
-CREATE TABLE answers (
+CREATE TABLE IF NOT EXISTS answers (
   answer_id INT,
   question_id INT,
   body TEXT,
@@ -23,7 +23,7 @@ CREATE TABLE answers (
   FOREIGN KEY (question_id) REFERENCES questions(question_id)
 );
 
-CREATE TABLE photos (
+CREATE TABLE IF NOT EXISTS photos (
   photo_id INT,
   answer_id INT,
   url VARCHAR(2000),
