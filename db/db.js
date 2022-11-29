@@ -1,8 +1,7 @@
+require('dotenv').config({path: '../.env'});
 const fs = require('fs');
 const csv = require('fast-csv');
-require('dotenv').config({path: '../.env'})
 const pgp = require('pg-promise')();
-console.log(require('dotenv').config({path: '../.env'}))
 
 const connection = {
   host: process.env.DB_HOST,
