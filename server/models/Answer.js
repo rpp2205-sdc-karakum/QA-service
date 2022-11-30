@@ -1,4 +1,20 @@
 require('dotenv').config({path: '../../.env'});
 const db = require('../../db/db.js');
 
-exports.get
+module.exports = {
+  get: () => {
+
+  },
+  
+  post: () => {
+
+  },
+
+  mark: () => {
+
+  },
+
+  report: () => {
+
+  }
+};
