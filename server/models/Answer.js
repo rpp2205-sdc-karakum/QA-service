@@ -3,7 +3,7 @@ const db = require('../../db/db.js');
 
 module.exports = {
   get: (questionId, count) => {
-
+    
   },
   
   post: (questionId, answer) => {

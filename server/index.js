@@ -4,13 +4,12 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 const db = require('../db/db.js');
+const { getQuestions } = require('./controllers/questions.js');
 
 app.use(express.json());
 
 // get questions
-app.get('/qa/questions/:product_id', (req, res) => {
-  res.send('questions route')
-});
+app.get('/qa/questions/:product_id', getQuestions);
 
 // get answers
 app.get('/qa/questions/:question_id/answers', (req, res) => {
