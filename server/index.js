@@ -5,6 +5,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const db = require('../db/db.js');
 const { getQuestions } = require('./controllers/questions.js');
+const { getAnswers } = require('./controllers/answers.js');
 
 app.use(express.json());
 
@@ -12,9 +13,7 @@ app.use(express.json());
 app.get('/qa/questions/:product_id', getQuestions);
 
 // get answers
-app.get('/qa/questions/:question_id/answers', (req, res) => {
-  res.send('answers route')
-});
+app.get('/qa/questions/:question_id/answers', getAnswers);
 
 // post a question
 app.post('/qa/questions', (req, res) => {
