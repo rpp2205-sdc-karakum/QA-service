@@ -2,19 +2,19 @@ require('dotenv').config({path: '../../.env'});
 const db = require('../../db/db.js');
 
 module.exports = {
-  get: () => {
+  get: (productId, count) => {
 
   },
 
-  post: () => {
+  post: (question) => {
 
   },
 
-  mark: () => {
+  mark: (questionId) => {
 
   },
 
-  report: () => {
-    
+  report: (questionId) => {
+
   }
 };
