@@ -9,8 +9,8 @@ module.exports = {
       });
   },
 
-  post: (question) => {
-
+  post: ({ product_id, body, name, email }) => {
+    // body, name, email, product_id
   },
 
   mark: (questionId) => {

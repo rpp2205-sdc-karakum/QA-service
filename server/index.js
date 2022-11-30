@@ -4,8 +4,8 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 const db = require('../db/db.js');
-const { getQuestions } = require('./controllers/questions.js');
-const { getAnswers } = require('./controllers/answers.js');
+const { getQuestions, postQuestion, markQuestion, reportQuestion } = require('./controllers/questions.js');
+const { getAnswers, postAnswer, markAnswer, reportAnswer } = require('./controllers/answers.js');
 
 app.use(express.json());
 
@@ -16,34 +16,22 @@ app.get('/qa/questions/:product_id', getQuestions);
 app.get('/qa/questions/:question_id/answers', getAnswers);
 
 // post a question
-app.post('/qa/questions', (req, res) => {
-  res.send('post a question')
-});
+app.post('/qa/questions', postQuestion);
 
 // post an answer
-app.post('/qa/questions/:question_id/answers', (req, res) => {
-  res.send('post an answer')
-});
+app.post('/qa/questions/:question_id/answers', postAnswer);
 
 // mark question helpful
-app.put('/qa/questions/:question_id/helpful', (req, res) => {
-  res.send('mark a question')
-});
+app.put('/qa/questions/:question_id/helpful', markQuestion);
 
 // mark answer helpful
-app.put('/qa/answers/:answer_id/helpful', (req, res) => {
-  res.send('mark an answer')
-});
+app.put('/qa/answers/:answer_id/helpful', markAnswer);
 
 // report question
-app.put('/qa/questions/:question_id/report', (req, res) => {
-  res.send('report a question')
-})
+app.put('/qa/questions/:question_id/report', reportQuestion)
 
 // report answer
-app.put('/qa/answers/:answer_id/report', (req, res) => {
-  res.send('report an answer')
-});
+app.put('/qa/answers/:answer_id/report', reportAnswer);
 
 
 if (!module.parent) {

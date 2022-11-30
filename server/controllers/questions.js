@@ -2,7 +2,9 @@ const Question = require('../models/Question.js');
 
 module.exports = {
   getQuestions: (req, res) => {
-    Question.get(req.params.product_id, 50)
+    let count = req.query.count || 50;
+
+    Question.get(req.params.product_id, count)
       .then((data) => {
         res.send(data);
       })
