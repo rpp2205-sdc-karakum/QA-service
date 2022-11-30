@@ -38,8 +38,8 @@ app.put('/qa/answers/:answer_id/helpful', (req, res) => {
 });
 
 // report question
-// app.put('/qa/questions/:question_id/report', (req, res) => {
-// })
+app.put('/qa/questions/:question_id/report', (req, res) => {
+})
 
 // report answer
 app.put('/qa/answers/:answer_id/report', (req, res) => {
