@@ -6,7 +6,7 @@ module.exports = {
  
     Answer.get(req.params.question_id, count)
       .then((data) => {
-        res.send(data);
+        res.status(200).send(data);
       })
       .catch((err) => {
         res.send(err);
@@ -14,7 +14,13 @@ module.exports = {
   },
 
   postAnswer: (req, res) => {
-
+    Answer.post(req.params.question_id, req.query)
+      .then((data) => {
+        res.status(201).send(data);
+      })
+      .catch((err) => {
+        res.send(err);
+      })
   },
 
   markAnswer: (req, res) => {
