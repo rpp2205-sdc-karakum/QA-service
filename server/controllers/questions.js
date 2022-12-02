@@ -14,7 +14,17 @@ module.exports = {
   },
 
   postQuestion: (req, res) => {
-
+    // let productId = req.query.product_id;
+    // let body = req.query.body;
+    // let name = req.query.name;
+    // let email = req.query.email;
+    Question.post(req.query)
+      .then((data) => {
+        res.status(200).send('question added');
+      })
+      .catch((err) => {
+        res.send(err);
+      });
   },
 
   markQuestion: (req, res) => {

@@ -9,7 +9,6 @@ const questionLoader = () => {
     let questionData = [];
     const parser = csv.parse({ headers: true });
     const qcs = new pgp.helpers.ColumnSet([
-      'question_id', 
       'product_id', 
       'body', 
       'question_date', 
@@ -60,7 +59,6 @@ const answerLoader = () => {
     let answerData = [];
     const parser = csv.parse({ headers: true });
     const acs = new pgp.helpers.ColumnSet([
-      'answer_id',
       'question_id',
       'body',
       'answer_date',
@@ -111,7 +109,6 @@ const photoLoader = () => {
     let photos = [];
     const parser = csv.parse({ headers: true });
     const pcs = new pgp.helpers.ColumnSet([
-      'photo_id',
       'answer_id',
       'url'],
       {table: 'photos'});
