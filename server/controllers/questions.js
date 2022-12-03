@@ -34,6 +34,12 @@ module.exports = {
   },
 
   reportQuestion: (req, res) => {
-
+    Question.report(req.params.question_id)
+      .then(() => {
+        res.status(204).send('question reported');
+      })
+      .catch((err) => {
+        res.send(err);
+      })
   }
 };
