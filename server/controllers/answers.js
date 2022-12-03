@@ -24,7 +24,6 @@ module.exports = {
   },
 
   markAnswer: (req, res) => {
-    console.log(req)
     Answer.mark(req.params.answer_id)
       .then(() => {
         res.status(204).send('Liked!');

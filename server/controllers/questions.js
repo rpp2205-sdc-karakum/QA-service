@@ -24,7 +24,13 @@ module.exports = {
   },
 
   markQuestion: (req, res) => {
-
+    Question.mark(req.params.question_id)
+      .then(() => {
+        res.status(204).send('question marked');
+      })
+      .catch((err) => {
+        res.send(err);
+      })
   },
 
   reportQuestion: (req, res) => {
