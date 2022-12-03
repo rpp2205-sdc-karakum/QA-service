@@ -31,7 +31,10 @@ module.exports = {
   },
 
   mark: (answerId) => {
-
+    return db.query(`UPDATE answers SET answer_helpfulness = answer_helpfulness + 1 WHERE answer_id = ${answerId}`)
+      .catch((err) => {
+        return err;
+      });
   },
 
   report: (answerId) => {
