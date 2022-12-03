@@ -38,6 +38,9 @@ module.exports = {
   },
 
   report: (answerId) => {
-
+    return db.query(`UPDATE answers SET reported = '1' WHERE answer_id = ${answerId}`)
+    .catch((err) => {
+     return err;
+    });
   }
 };

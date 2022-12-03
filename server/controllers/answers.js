@@ -34,6 +34,12 @@ module.exports = {
   },
 
   reportAnswer: (req, res) => {
-
+    Answer.report(req.params.answer_id)
+      .then(() => {
+        res.status(204).send('answer reported');
+      })
+      .catch((err) => {
+        res.send(err);
+      })
   }
 };
