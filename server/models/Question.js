@@ -3,7 +3,20 @@ const db = require('../../db/db.js');
 
 module.exports = {
   get: (productId, count) => {
-   return db.query(`SELECT * FROM questions WHERE product_id = ${productId} LIMIT ${count}`)
+    let query = `
+    SELECT q.question_id, q.question_body, q.question_date, q.asker_name, q.question_helpfulness, q.reported, 
+      (SELECT json_agg(a) FROM (
+        SELECT a.answer_id, a.body AS answer_body, a.answer_date, a.answer_name, a.answer_helpfulness, a.reported,
+            (SELECT json_agg(p) FROM (
+              SELECT p.photo_id, p.url
+              FROM photos p
+              WHERE p.answer_id = a.answer_id) p) AS photos
+        FROM answers a
+        WHERE a.question_id = q.question_id) a) AS answers
+      FROM questions q
+      WHERE q.product_id = 3
+      LIMIT ${count}`
+    return db.query(query)
       .catch((err) => {
         return err;
       });

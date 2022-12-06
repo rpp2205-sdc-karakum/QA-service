@@ -4,8 +4,9 @@ module.exports = {
   getQuestions: (req, res) => {
     let count = req.query.count || 50;
     Question.get(req.params.product_id, count)
-      .then((results) => {
-        let data = {results: results}
+      .then((data) => {
+        console.log(data)
+        // let data = {results: results}
         res.status(200).send(data);
       })
       .catch((err) => {
