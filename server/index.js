@@ -2,7 +2,7 @@ require('dotenv').config({path: './.env'});
 const express = require('express');
 const path = require('path');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 const db = require('../db/db.js');
 const { getQuestions, postQuestion, markQuestion, reportQuestion } = require('./controllers/questions.js');
 const { getAnswers, postAnswer, markAnswer, reportAnswer } = require('./controllers/answers.js');

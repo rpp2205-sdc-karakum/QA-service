@@ -3,9 +3,9 @@ const Answer = require('../models/Answer.js');
 module.exports = {
   getAnswers: (req, res) => {
     let count = req.query.count || 50;
- 
     Answer.get(req.params.question_id, count)
-      .then((data) => {
+      .then((results) => {
+        let data = {results: results}
         res.status(200).send(data);
       })
       .catch((err) => {

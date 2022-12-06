@@ -9,7 +9,8 @@ const connection = {
   database: process.env.DB_NAME,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
-  max: 20
+  max: 20,
+  multipleStatements: true
 };
 
 const db = pgp(connection);
