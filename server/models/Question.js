@@ -14,7 +14,7 @@ module.exports = {
         FROM answers a
         WHERE a.question_id = q.question_id) a) AS answers
       FROM questions q
-      WHERE q.product_id = 3
+      WHERE q.product_id = ${productId}
       LIMIT ${count}`
     return db.query(query)
       .catch((err) => {

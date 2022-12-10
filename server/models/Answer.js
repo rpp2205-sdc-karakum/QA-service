@@ -3,7 +3,17 @@ const db = require('../../db/db.js');
 
 module.exports = {
   get: (questionId, count) => {
-    return db.query(`SELECT * FROM answers WHERE question_id = ${questionId} LIMIT ${count}`)
+    return db.query(`
+      SELECT
+        a.answer_id,
+        a.body,
+        a.answer_date AS "date",
+        a.answer_name AS "answerer_name",
+        a.answer_helpfulness AS "helpfulness",
+      ARRAY(SELECT p.url FROM photos p WHERE p.answer_id = a.answer_id) AS "photos"
+      FROM answers a
+      WHERE a.question_id = ${questionId}
+      LIMIT ${count}`)
       .catch((err) => {
         return err;
       });
