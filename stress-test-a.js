@@ -5,11 +5,11 @@ export const options = {
   scenarios: {
     stress_request_rate: {
       executor: 'constant-arrival-rate',
-      rate: 1000,
+      rate: 7000,
       timeUnit: '1s',
       duration: '1m',
-      preAllocatedVUs: 500,
-      maxVUs: 3000,
+      preAllocatedVUs: 1000,
+      maxVUs: 100000,
     },
   },
 };
@@ -20,7 +20,7 @@ export default function getAnswers() {
   });
 
   check(res, {
-    'status was 201': (r) => r.status == 200
+    'status was 200': (r) => r.status == 200
   });
 
   sleep(1);
