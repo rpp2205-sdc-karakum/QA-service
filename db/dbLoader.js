@@ -32,8 +32,9 @@ const questionLoader = () => {
       }))
       .on('error', error => console.error(error))
       .on('data', row => {
+        console.log('pushing')
         questionData.push(row);
-        if (questionData === 100) {
+        if (questionData === 10000) {
           parser.pause();
           console.log('loading')
           const query = pgp.helpers.insert(questionData, qcs);
@@ -84,7 +85,7 @@ const answerLoader = () => {
       .on('error', error => console.error(error))
       .on('data', row => {
         answerData.push(row)
-        if (answerData.length === 100) {
+        if (answerData.length === 10000) {
           parser.pause();
           const query = pgp.helpers.insert(answerData, acs);
           db.none(query).then(() => {
@@ -119,7 +120,7 @@ const photoLoader = () => {
       .on('error', error => console.error(error))
       .on('data', row => {
         photos.push(row);
-        if (photos.length === 100) {
+        if (photos.length === 10000) {
           parser.pause()
         const query = pgp.helpers.insert(photos, pcs);
         db.none(query).then(() => {
