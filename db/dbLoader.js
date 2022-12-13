@@ -18,7 +18,7 @@ const questionLoader = () => {
       'reported'], 
       {table: 'questions'});
   
-    fs.createReadStream('/Users/blake/Desktop/QA-data/questions.csv')
+    fs.createReadStream('../csvdata/questions.csv')
       .pipe(parser)
       .transform(data => ({
         question_id: data.question_id,
@@ -68,7 +68,7 @@ const answerLoader = () => {
       'reported'],
       {table: 'answers'});
   
-    fs.createReadStream('/Users/blake/Desktop/QA-data/answers.csv')
+    fs.createReadStream('../csvdata/answers.csv')
       .pipe(parser)
       .transform(data => ({
         answer_id: data.answer_id,
@@ -113,7 +113,7 @@ const photoLoader = () => {
       'url'],
       {table: 'photos'});
 
-    fs.createReadStream('/Users/blake/Desktop/QA-data/answers_photos.csv')
+    fs.createReadStream('../csvdata/answers_photos.csv')
       .pipe(parser)
       .on('error', error => console.error(error))
       .on('data', row => {
