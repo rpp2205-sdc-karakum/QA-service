@@ -33,7 +33,7 @@ const questionLoader = () => {
       .on('error', error => console.error(error))
       .on('data', row => {
         questionData.push(row);
-        if (questionData === 2000) {
+        if (questionData === 1000) {
           parser.pause();
           const query = pgp.helpers.insert(questionData, qcs);
           db.none(query).then(() => {
@@ -83,7 +83,7 @@ const answerLoader = () => {
       .on('error', error => console.error(error))
       .on('data', row => {
         answerData.push(row)
-        if (answerData.length === 20000) {
+        if (answerData.length === 1000) {
           parser.pause();
           const query = pgp.helpers.insert(answerData, acs);
           db.none(query).then(() => {
@@ -118,7 +118,7 @@ const photoLoader = () => {
       .on('error', error => console.error(error))
       .on('data', row => {
         photos.push(row);
-        if (photos.length === 20000) {
+        if (photos.length === 1000) {
           parser.pause()
         const query = pgp.helpers.insert(photos, pcs);
         db.none(query).then(() => {
