@@ -32,9 +32,9 @@ const questionLoader = () => {
       }))
       .on('error', error => console.error(error))
       .on('data', row => {
-        console.log('pushing')
+        console.log(questionData.length)
         questionData.push(row);
-        if (questionData === 10000) {
+        if (questionData.length === 10000) {
           parser.pause();
           console.log('loading')
           const query = pgp.helpers.insert(questionData, qcs);
