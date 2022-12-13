@@ -24,7 +24,7 @@ db.connect()
       `CREATE TABLE IF NOT EXISTS questions (
         question_id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
         product_id INT,
-        body TEXT,
+        question_body TEXT,
         question_date VARCHAR(100),
         asker_name VARCHAR(50),
         asker_email VARCHAR(100),

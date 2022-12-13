@@ -10,7 +10,7 @@ const questionLoader = () => {
     const parser = csv.parse({ headers: true });
     const qcs = new pgp.helpers.ColumnSet([
       'product_id', 
-      'body', 
+      'question_body', 
       'question_date', 
       'asker_name', 
       'asker_email', 
@@ -23,7 +23,7 @@ const questionLoader = () => {
       .transform(data => ({
         question_id: data.question_id,
         product_id: data.product_id,
-        body: data.body,
+        question_body: data.body,
         question_date: new Date(data.question_date * 1000).toLocaleString(),
         asker_name: data.asker_name,
         asker_email: data.asker_email,
