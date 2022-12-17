@@ -34,7 +34,7 @@ app.put('/qa/questions/:question_id/report', reportQuestion)
 app.put('/qa/answers/:answer_id/report', reportAnswer);
 
 app.get('/loaderio-30bf00790c5520359c8cfa110cda6338.txt', (req, res) => {
-  res.sendFile('loaderio-30bf00790c5520359c8cfa110cda6338.txt', {root: __dirname});
+  res.sendFile('loaderio-30bf00790c5520359c8cfa110cda6338.txt', {root: 'QA-service'});
 });
 
 if (!module.parent) {
