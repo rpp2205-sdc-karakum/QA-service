@@ -33,6 +33,9 @@ app.put('/qa/questions/:question_id/report', reportQuestion)
 // report answer
 app.put('/qa/answers/:answer_id/report', reportAnswer);
 
+app.get('/loaderio-30bf00790c5520359c8cfa110cda6338.txt', (req, res) => {
+  res.sendFile('../loaderio-30bf00790c5520359c8cfa110cda6338.txt')
+});
 
 if (!module.parent) {
   app.listen(port, () => {
