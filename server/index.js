@@ -33,8 +33,8 @@ app.put('/qa/questions/:question_id/report', reportQuestion)
 // report answer
 app.put('/qa/answers/:answer_id/report', reportAnswer);
 
-app.get('/loaderio-0ceb3322c1983686abe54c71e71e64c2', (req, res) => {
-  res.send('loaderio-0ceb3322c1983686abe54c71e71e64c2');
+app.get('/loaderio-17b00ea1b9ebae7539d8a8446f1e129d', (req, res) => {
+  res.send('loaderio-17b00ea1b9ebae7539d8a8446f1e129d');
 });
 
 if (!module.parent) {
